@@ -1,3 +1,8 @@
 Given /^there is a User$/ do
-  Factory(:user)
+  FactoryGirl.create(:user)
+end
+
+Given /^the User has posted the message "([^"]*)"$/ do |message_text|
+  User.count.should == 1
+  FactoryGirl.create(:message, content: message_text, user: User.first)
 end

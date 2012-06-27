@@ -22,6 +22,8 @@ Test: `$ cucumber`
 
 ![t](http://i.imgur.com/jJZ1O.png)
 
+## Step 1
+
 FactoryGirl eklentisi,
 
     # Gemfile
@@ -31,12 +33,42 @@ Adım tanımını oluştur,
 
     # features/step_definitions/user_steps.rb
     Given /^there is a User$/ do
-        Factory(:user)
+        FactoryGirl.create(:user)
     end
 
 Test: `$ cucumber`
 
 ![t](http://i.imgur.com/GaEj5.png)
+
+User model,
+
+    !bash
+    $ rails generate model User username:string
+
+migrate+prepare,
+
+    !bash
+    $ rake db:migrate db:test:prepare
+
+Test: `$ cucumber`
+![t](http://i.imgur.com/XmV4y.png)
+
+- Step 1: yeşil
+- Step 2: Undefined step...
+
+## Step 2
+
+Adım tanımını oluştur,
+
+    !ruby
+    Given /^the User has posted the message "([^"]*)"$/ do |message_text|
+        User.count.should == 1
+        FactoryGirl.create(:message, content: message_text, user: User.first)
+    end
+
+Test: `$ cucumber`
+
+![t](http://i.imgur.com/Gjzhc.png)
 
 # Kaynak
 
