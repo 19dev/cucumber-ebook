@@ -125,6 +125,16 @@ Test: `$ cucumber`
 
 ![t](http://i.imgur.com/2qYcK.png)
 
+View'i ayarla,
+
+    !ruby
+    # app/views/users/show.html.erb
+    Hello
+
+Test: `$ cucumber`
+
+![t](http://i.imgur.com/RPsPy.png)
+
 # Kaynak
 
 - cucumber book: http://seyyah.me/p/cucumber-ebook
