@@ -70,6 +70,12 @@ Test: `$ cucumber`
 
 ![t](http://i.imgur.com/Gjzhc.png)
 
+Message modeli,
+
+    !bash
+    $ rails g model Message user_id:integer content:string
+    $ rake db:migrate db:test:prepare
+
 # Kaynak
 
 - cucumber book: http://seyyah.me/p/cucumber-ebook
