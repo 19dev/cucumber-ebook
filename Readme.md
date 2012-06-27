@@ -135,6 +135,30 @@ Test: `$ cucumber`
 
 ![t](http://i.imgur.com/RPsPy.png)
 
+View: Adım tanımını oluşturalım,
+
+    !ruby
+    # features/step_definitions/view_steps.rb
+    Then /^I should see "([^"]*)"$/ do |text|
+        page.should have_content(text)
+    end
+
+Test: `$ cucumber`
+
+![t](http://i.imgur.com/XhhZm.png)
+
+View,
+
+    !ruby
+    # app/views/users/show.html.erb
+    <% @user.messages.each do |message| %>
+        <p><%= message.content %></p>
+    <% end %>
+
+Test: `$ cucumber`
+
+![t](http://i.imgur.com/196pc.png)
+
 # Kaynak
 
 - cucumber book: http://seyyah.me/p/cucumber-ebook
