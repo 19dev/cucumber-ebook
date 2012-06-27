@@ -13,10 +13,10 @@ Feature,
     $ vim feature/see_messages.feature
     Feature: See Messages
     Scenario: See another user's messages
-        Given there is a User
-        And the User has posted the message "this is my message"
-        When I visit the page for the User
-        Then I should see "this is my message"
+      Given there is a User
+      And the User has posted the message "this is my message"
+      When I visit the page for the User
+      Then I should see "this is my message"
 
 Test: `$ cucumber`
 
@@ -33,7 +33,7 @@ Adım tanımını oluştur,
 
     # features/step_definitions/user_steps.rb
     Given /^there is a User$/ do
-        FactoryGirl.create(:user)
+      FactoryGirl.create(:user)
     end
 
 Test: `$ cucumber`
@@ -62,8 +62,8 @@ Adım tanımını oluştur,
 
     !ruby
     Given /^the User has posted the message "([^"]*)"$/ do |message_text|
-        User.count.should == 1
-        FactoryGirl.create(:message, content: message_text, user: User.first)
+      User.count.should == 1
+      FactoryGirl.create(:message, content: message_text, user: User.first)
     end
 
 Test: `$ cucumber`
@@ -74,8 +74,8 @@ FactoryGirl eklentisi,
 
     !ruby
     factory :message do |f|
-        f.association :user
-        f.content 'Test message content'
+      f.association :user
+      f.content 'Test message content'
     end
 
 Message modeli,
@@ -99,8 +99,8 @@ Adım tanımını oluştur,
 
     !ruby
     When /^I visit the page for the User$/ do
-        User.count.should == 1
-        visit(user_path(User.first))
+      User.count.should == 1
+      visit(user_path(User.first))
     end
 
 Test: `$ cucumber`
@@ -116,9 +116,10 @@ Test: `$ cucumber`
 Controller'u ayarla,
 
     !ruby
+    # app/controllers/users_controller.rb
     class UsersController < ApplicationController
-        def show
-        end
+      def show
+      end
     end
 
 Test: `$ cucumber`
@@ -135,12 +136,14 @@ Test: `$ cucumber`
 
 ![t](http://i.imgur.com/RPsPy.png)
 
+## Step 4: Implementing the View
+
 View: Adım tanımını oluşturalım,
 
     !ruby
     # features/step_definitions/view_steps.rb
     Then /^I should see "([^"]*)"$/ do |text|
-        page.should have_content(text)
+      page.should have_content(text)
     end
 
 Test: `$ cucumber`
@@ -152,13 +155,34 @@ View,
     !ruby
     # app/views/users/show.html.erb
     <% @user.messages.each do |message| %>
-        <p><%= message.content %></p>
+      <p><%= message.content %></p>
     <% end %>
 
 Test: `$ cucumber`
 
 ![t](http://i.imgur.com/196pc.png)
 
+Controller,
+
+    !ruby
+    # app/controllers/users_controller.rb
+    class UsersController < ApplicationController
+      def show
+        @user = User.find(params[:id])
+      end
+    end
+
+Model,
+
+    !ruby
+    # app/models/user.rb
+    class User < ActiveRecord::Base
+      has_many :messages
+    end
+
+Test: `$ cucumber`
+
+![t](http://i.imgur.com/auZ9Y.png)
 # Kaynak
 
 - cucumber book: http://seyyah.me/p/cucumber-ebook
