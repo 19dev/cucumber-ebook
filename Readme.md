@@ -93,6 +93,20 @@ Test: `$ cucumber`
 
 ![t](http://i.imgur.com/wx9z2.png)
 
+## Step 3: Visit
+
+Adım tanımını oluştur,
+
+    !ruby
+    When /^I visit the page for the User$/ do
+        User.count.should == 1
+        visit(user_path(User.first))
+    end
+
+Test: `$ cucumber`
+
+![t](http://i.imgur.com/rjjlF.png)
+
 # Kaynak
 
 - cucumber book: http://seyyah.me/p/cucumber-ebook
