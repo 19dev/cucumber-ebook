@@ -107,6 +107,24 @@ Test: `$ cucumber`
 
 ![t](http://i.imgur.com/rjjlF.png)
 
+Router'u tanımla,
+
+Test: `$ cucumber`
+
+![t](http://i.imgur.com/TEs85.png)
+
+Controller'u ayarla,
+
+    !ruby
+    class UsersController < ApplicationController
+        def show
+        end
+    end
+
+Test: `$ cucumber`
+
+![t](http://i.imgur.com/2qYcK.png)
+
 # Kaynak
 
 - cucumber book: http://seyyah.me/p/cucumber-ebook
