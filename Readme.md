@@ -87,6 +87,12 @@ Message modeli,
 Test: `$ cucumber`
 ![t](http://i.imgur.com/Vn02j.png)
 
+Message belongs_to user: `belongs_to :user`
+
+Test: `$ cucumber`
+
+![t](http://i.imgur.com/wx9z2.png)
+
 # Kaynak
 
 - cucumber book: http://seyyah.me/p/cucumber-ebook
