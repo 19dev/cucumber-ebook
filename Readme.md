@@ -70,11 +70,22 @@ Test: `$ cucumber`
 
 ![t](http://i.imgur.com/Gjzhc.png)
 
+FactoryGirl eklentisi,
+
+    !ruby
+    factory :message do |f|
+        f.association :user
+        f.content 'Test message content'
+    end
+
 Message modeli,
 
     !bash
     $ rails g model Message user_id:integer content:string
     $ rake db:migrate db:test:prepare
+
+Test: `$ cucumber`
+![t](http://i.imgur.com/Vn02j.png)
 
 # Kaynak
 
