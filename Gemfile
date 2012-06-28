@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails' #'3.1.3'
 
 gem 'sqlite3'
 gem 'execjs'
