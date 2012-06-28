@@ -1,8 +1,8 @@
 Given /^I visit "(.*?)" page$/ do |page|
-  visit "/#{page}"
+  visit "#{page}"
 end
 
-Given /^I signed up before "username":"(.*?)" and "password":"(.*?)"$/ do |username, password|
+Given /^an user exists with login "(.*?)" and password "(.*?)"$/ do |username, password|
   FactoryGirl.create(:user, username: username, password: password) 
 end
 

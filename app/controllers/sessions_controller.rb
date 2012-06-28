@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:notice] = "Login success"
+      flash[:notice] = "Login successfully"
     else
       flash[:error] = "Login failure: username and/or password incorrect"
     end
