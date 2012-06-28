@@ -13,3 +13,9 @@ end
 When /^I press "(.*?)"$/ do |action|
   click_button action
 end
+
+Given /^I am not logged in$/ do
+  visit("/logout")
+  step 'I should see "You have been logged out"'
+end
+

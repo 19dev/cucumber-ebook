@@ -3,6 +3,7 @@
 Feature: user ...
 	Scenario Outline: signin
 		Given I visit "/" page
+		And I am not logged in
 		And an user exists with login "<uname>" and password "<pass>"
 		And I fill in "username" with "<uname2>"
 		And I fill in "password" with "<pass2>"
