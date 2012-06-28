@@ -3,7 +3,7 @@ Given /^I visit "(.*?)" page$/ do |page|
 end
 
 Given /^an user exists with login "(.*?)" and password "(.*?)"$/ do |username, password|
-  FactoryGirl.create(:user, username: username, password: password) 
+  FactoryGirl.create(:user, username: username, password: password)
 end
 
 Given /^I fill in "(.*?)" with "(.*?)"$/ do |attr, value|
@@ -14,8 +14,12 @@ When /^I press "(.*?)"$/ do |action|
   click_button action
 end
 
-Given /^I am not logged in$/ do
-  visit("/logout")
-  step 'I should see "You have been logged out"'
+Given /^I am logged in$/ do
+  @current_user = FactoryGirl.create(:user)
+  login_as(@current_user) 
+end
+
+When /^I click link "(.*?)"$/ do |link|
+  click_link link
 end
 
