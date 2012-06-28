@@ -5,6 +5,7 @@ gem 'rails' #'3.1.3'
 gem 'sqlite3'
 gem 'execjs'
 gem 'therubyracer'
+gem 'bcrypt-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

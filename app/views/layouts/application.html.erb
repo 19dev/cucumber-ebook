@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Squeaker</title>
+  <title><%=t 'layouts.title' %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/"><%=t 'layouts.navbar.title' %></a>
+        <ul class="nav pull-right" >
+          <% if current_user %>
+            <li><%= link_to current_user.username,"" %></li>
+            <li><%= link_to t('layouts.navbar.logout'), logout_url %> </li>
+          <% end %>
+          <ul>
+          </div>
+        </div>
+      </div>
 
-<%= yield %>
+      <div class="container">
+        <% if flash[:error] %>
+          <div class="alert alert-error fade in">
+            <a href="#" data-dismiss="alert" class="close">×</a>
+              <%= flash[:error] %>
+          </div>
+        <% end %>
+        <% if flash[:notice] %>
+            <div class="alert alert-info fade in">
+              <a href="#" data-dismiss="alert" class="close">×</a>
+              <%= flash[:notice] %>
+            </div>
+        <% end %>
 
-</body>
+        <%= yield %>
+      </div>
+
+      <div class="well navbar-fixed-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="span4 offset4">
+              <%=raw t 'layouts.footer' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </body>
 </html>
