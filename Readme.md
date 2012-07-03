@@ -1,6 +1,8 @@
 # Ne?
 
-http://seyyah.me/p/cucumber-ebook/#slide121
+Folyo desteği: <http://seyyah.me/p/cucumber-ebook/#slide121>
+
+Dallar: master + [sign_in](https://github.com/19test/cucumber-ebook/tree/sign_in)
 
 Başlarken,
 
