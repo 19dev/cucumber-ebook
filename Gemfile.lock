@@ -161,15 +161,15 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
-  coffee-rails (~> 3.2.1)
+  coffee-rails
   cucumber-rails
   database_cleaner
   execjs
   factory_girl_rails
   jquery-rails
-  rails
+  rails (= 3.2.6)
   rspec-rails
-  sass-rails (~> 3.2.3)
+  sass-rails
   sqlite3
   therubyracer
-  uglifier (>= 1.0.3)
+  uglifier
