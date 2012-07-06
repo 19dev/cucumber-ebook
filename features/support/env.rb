@@ -6,6 +6,10 @@
 
 require 'cucumber/rails'
 require 'factory_girl'
+require 'capybara'
+require 'capybara/mechanize'
+require 'capybara/cucumber'
+require 'mechanize'
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
@@ -52,6 +56,7 @@ end
 #     DatabaseCleaner.strategy = :transaction
 #   end
 #
+
 
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.

@@ -1,5 +1,6 @@
-Given /^I visit "(.*?)" page$/ do |page|
-  visit "#{page}"
+Given /^I visit ustad "(.*?)" page$/ do |page|
+  visit "http://192.168.140.215:3009/#{page}"
+  #visit "#{page}"
 end
 
 Given /^an user exists with login "(.*?)" and password "(.*?)"$/ do |username, password|
@@ -16,7 +17,7 @@ end
 
 Given /^I am logged in$/ do
   @current_user = FactoryGirl.create(:user)
-  login_as(@current_user) 
+  login_as(@current_user)
 end
 
 When /^I click link "(.*?)"$/ do |link|

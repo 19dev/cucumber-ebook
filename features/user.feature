@@ -2,7 +2,7 @@
 # vim: tabstop=2:softtabstop=2:shiftwidth=2:noexpandtab
 Feature: user ...
 	Scenario Outline: login
-		Given I visit "/" page
+		Given I visit ustad "/login" page
 		#And I am not logged in
 		And an user exists with login "<uname>" and password "<pass>"
 		And I fill in "username" with "<uname2>"
@@ -21,7 +21,7 @@ Feature: user ...
 			| test  | secret |        |         | Login  | failure |
 
 	Scenario: logout
-		Given I visit "/" page
+		Given I visit ustad "/" page
 		And I am logged in
 		When I click link "Logout"
 		Then I should see "logged out"
